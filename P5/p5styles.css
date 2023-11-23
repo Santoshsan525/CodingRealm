@@ -1,0 +1,276 @@
+/* import required font from google fonts */
+@import url();
+
+/* to void default settings */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-shadow;
+}
+
+html, body {
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+/* navigation header containing logo (left)and 3 bars(right)*/
+nav{
+    box-shadow: 5px 5px 5px rgba(52, 41, 41, 0.2);
+    position: sticky;
+    top: 0;
+    margin-bottom: 32px;
+    background-color: aliceblue;
+    padding: 10px;
+    z-index: 50;
+}
+.navigation_container{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+
+.bar_container{
+    font-size: 24px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* hero section to display poster, offer pallet and button*/
+.hero{
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 67px); /* subtracting nav bar from viewport height */
+}
+.hero_contenet{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+}
+.hero_contenet h1{
+    font-size: 72px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+.hero_contenet p {
+    font-family: sans-serif;
+    
+}
+/* 50% offer tag */
+.tag {
+    background-color: rgb(7, 148, 0);
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    align-self: flex-start;
+}
+
+/* style for explore button in the poster */
+.explore_btn {
+    padding: 10px 15px;
+    background-color: bisque;
+    align-self: flex-start;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all ease-in-out;
+    border: 1px solid black;
+}
+.explore_btn:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+    background-color: aqua;
+}
+
+
+/* devise width settup change conditions */
+@media (max-width: 760px){
+    .hero{
+        flex-direction: column;
+    }
+    .hero_image{
+       display: flex;
+       justify-content: center;
+    }
+    .hero_image img{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .hero_contenet{
+        gap: 10px;
+        padding: 10px;
+    }
+    .hero_contenet h1{
+        font-size: 32px;
+    }
+
+    /* mobile view for features cards*/
+    .features
+    {    
+        flex-direction: column;
+    }
+    .grid
+    {
+        padding: 10px;
+    }
+    .gridimg
+    {
+        border-radius: 0px;
+    }
+    
+}
+
+
+/*add banner at the bottom space to display feature in the image format */
+/* 
+.framecontainer {
+    display: flex;
+    position: relative;
+    justify-self: center;
+}
+.frame{
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px;
+    margin-top: 50px;
+    outline: auto;
+    color: rgb(163, 163, 203);
+    background-color: antiquewhite;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
+    width: 100%;
+
+} */
+
+/* add banner at the bottom space to display feature in the card format */
+.features{
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding: 20px;
+
+}
+
+.feature{
+    display: flex;
+    gap: 20px;
+    background-color: rgb(212, 231, 158);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+    border: 2px solid black;
+    
+}
+.feature:hover{
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+/* a horizontal line to separate the page */
+.divider{
+    width: 100%;
+    border: 1px solid black;
+    margin-bottom: 30px;
+}
+/*  poster containing the menu and images of food */
+/* tag 2 is for explore our gallary line */
+.tag2{
+    background-color: green;
+    padding: 10px;
+    position: relative;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 50px;
+}
+
+.menu h2{
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 1000;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin: 50px 0;
+    align-items: center;
+}
+.menu .tag2 {
+    align-self: center;
+}
+/* grid for images to display in galary form */
+.grid  {
+    display: grid;
+    margin-left: 20px;
+    padding: 20px;
+    padding-left: 30px;
+    gap: 10px;
+    grid-template-areas: 
+                        "I1 I2 I3 I4";
+}
+/* declaring each grip space to images  */
+.item1{
+    grid-area: I1;
+
+}
+.item2{
+    grid-area: I2;
+
+}
+.item3{
+    grid-area: I3;
+
+}
+.item4{
+    grid-area: I4;
+
+}
+/* image styles */
+.gridimg{
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    width: 100%;
+    height: auto;
+}
+
+.gridimg:hover{
+    transform: scale(1.08);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 19px 38
+    px, rgba(0, 0, 0, 0.22) 0px -15px 20
+    px;
+    
+}
+/* footer section  */
+.foot{
+    background:#f5e3e3;
+    padding: 1rem;
+    text-align: center;
+    font-size: .8em;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 15px;
+    list-style: none;
+}
+/* follow us icons styles */
+.icons_tank{
+    color: #bebecd;
+    margin: 0 10px;
+    font-size: 20px;
+
+}
+
