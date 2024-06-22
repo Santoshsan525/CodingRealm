@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function timestamp() {
+            var response = document.getElementById("g-recaptcha-response");
+            if (response == null || response.value.trim() == "") {
+                var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+                elems["ts"] = JSON.stringify(new Date().getTime());
+                document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
+            }
+        }
+        setInterval(timestamp, 500);
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Submit a Case</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Submit a Case</h1>
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5j00000AHGTm" method="POST">
+            <input type="hidden" name="captcha_settings" value='{"keyname":"AvengersAssemble","fallback":"true","orgId":"00D5j00000AHGTm","ts":""}'>
+            <input type="hidden" name="orgid" value="00D5j00000AHGTm">
+            <input type="hidden" name="retURL" value="http://www.google.com">
+            
+            <div class="form-group">
+                <label for="name">Contact Name</label>
+                <input id="name" name="name" type="text" maxlength="80" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" maxlength="80" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="text" maxlength="40" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" maxlength="80" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="">--None--</option>
+                    <option value="New">New</option>
+                    <option value="Working">Working</option>
+                    <option value="Escalated">Escalated</option>
+                    <option value="Closed">Closed</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="On Hold">On Hold</option>
+                    <option value="Waiting for Customer">Waiting for Customer</option>
+                    <option value="Merged">Merged</option>
+                    <option value="Response Received">Response Received</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <select id="priority" name="priority" required>
+                    <option value="">--None--</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="00N5j00000FnvNT">Engineering Req Number</label>
+                <input id="00N5j00000FnvNT" name="00N5j00000FnvNT" type="text" maxlength="12">
+            </div>
+            
+            <div class="form-group">
+                <label for="00N5j00000FnvNV">Product</label>
+                <select id="00N5j00000FnvNV" name="00N5j00000FnvNV" required>
+                    <option value="">--None--</option>
+                    <option value="GC1040">GC1040</option>
+                    <option value="GC1060">GC1060</option>
+                    <option value="GC3020">GC3020</option>
+                    <option value="GC3040">GC3040</option>
+                    <option value="GC3060">GC3060</option>
+                    <option value="GC5020">GC5020</option>
+                    <option value="GC5040">GC5040</option>
+                    <option value="GC5060">GC5060</option>
+                    <option value="GC1020">GC1020</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="currency">Case Currency</label>
+                <select id="currency" name="currency" required>
+                    <option value="INR" selected>INR - Indian Rupee</option>
+                    <option value="USD">USD - U.S. Dollar</option>
+                </select>
+            </div>
+            
+            <input type="hidden" id="external" name="external" value="1">
+            
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6Lc3SCghAAAAAMokCiqg-Lp2vWVJziK10yo9ay37"></div>
+            </div>
+            
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
